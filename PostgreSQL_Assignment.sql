@@ -18,8 +18,8 @@ CREATE TABLE species (
 
 CREATE TABLE sightings (
     sighting_id SERIAL PRIMARY KEY,
-    ranger_id  INT REFERENCES rangers(ranger_id),
-    species_id INT REFERENCES species(species_id),
+    ranger_id  INT REFERENCES rangers(ranger_id) NOT NULL,
+    species_id INT REFERENCES species(species_id) NOT NULL,
     sighting_time TIMESTAMP,
     location VARCHAR(20),
     notes VARCHAR(100)
@@ -80,4 +80,4 @@ CASE
 END  AS time_of_day  FROM sightings;
 
 -- Problem 9
-DELETE rangers WHERE ranger_id IN (SELECT ranger_id FROM rangers WHERE ranger_id NOT IN (SELECT DISTINCT ranger_id from sightings)) ;
+DELETE FROM rangers WHERE ranger_id IN (SELECT ranger_id FROM rangers WHERE ranger_id NOT IN (SELECT DISTINCT ranger_id from sightings)) ;
