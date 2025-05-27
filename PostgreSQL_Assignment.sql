@@ -25,11 +25,11 @@ CREATE TABLE sightings (
     notes VARCHAR(100)
 );
 
-INSERT INTO rangers (ranger_id, name,region)
+INSERT INTO rangers ( name,region)
 VALUES
-(1,'Alice Green','Northern Hills'),
-(2,'Bob White','River Delta'),
-(3,'Carol King','Mountain Range');
+('Alice Green','Northern Hills'),
+('Bob White','River Delta'),
+('Carol King','Mountain Range');
 
 INSERT INTO species (common_name, scientific_name,discovery_date,conservation_status)
 VALUES
